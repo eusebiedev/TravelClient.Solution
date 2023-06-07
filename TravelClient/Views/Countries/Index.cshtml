@@ -4,9 +4,13 @@
 
 <h1>All the Blogger's Countries:</h1>
 
+<h3>Actions:</h3>
+
+<p>@Html.ActionLink("Add a new country to the blog", "Create")</p>
+
 <ol>
 @foreach (Country country in Model)
 {
-  <li><strong>@country.Name</strong> the @country.Language | <a href="/Countries/Details/@(country.CountryId)">View Country Details</a></li>
+  <li><strong>@country.Name</strong><br> <a href="/Countries/Details/@(country.CountryId)">View Country Details</a></li>
 }
 </ol>

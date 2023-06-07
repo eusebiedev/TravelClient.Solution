@@ -1,0 +1,28 @@
+@{
+  ViewData["Title"] = "Create Country";
+}
+
+@model TravelClient.Models.Country
+
+<h4>Add a new country to the Travel Blog:</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <br>
+  @Html.LabelFor(model => model.Language)
+  @Html.TextBoxFor(model => model.Language)
+  <br>
+  @Html.LabelFor(model => model.Climate)
+  @Html.TextBoxFor(model => model.Climate)
+  <br>
+  @Html.LabelFor(model => model.Population)
+  @Html.TextBoxFor(model => model.Population)
+  <br>
+  <br>
+  <input type="submit" value="Add new country" class="btn btn-primary"/>
+}
+
+<br>
+<p>@Html.ActionLink("Back to all countries", "Index")</p>

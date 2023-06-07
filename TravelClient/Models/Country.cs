@@ -22,5 +22,30 @@ namespace TravelClient.Models
 
       return countryList;
     }
+    public static Country GetDetails(int id)
+    {
+      var apiCallTask = ApiHelper.Get(id);
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Country country = JsonConvert.DeserializeObject<Country>(jsonResponse.ToString());
+
+      return country;
+    }
+    public static void Post(Country country)
+    {
+      string jsonCountry = JsonConvert.SerializeObject(country);
+      ApiHelper.Post(jsonCountry);
+    }
+    public static void Put(Country country)
+    {
+      string jsonCountry = JsonConvert.SerializeObject(country);
+      ApiHelper.Put(country.CountryId, jsonCountry);
+    }
+
+    public static void Delete(int id)
+    {
+      ApiHelper.Delete(id);
+    }
   }
 }
